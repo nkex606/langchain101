@@ -11,7 +11,12 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from grader import answer
 
+# 沒有設定 USER_AGENT, WebBaseLoader 會有 warning
+os.environ["USER_AGENT"] = "<some_agent>"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = "<langchain_api_key>"
 os.environ["OPENAI_API_KEY"] = "<openai_api_key>"
+
 question: str = "台灣有名的飲料是什麼？"
 model: str = "gpt-4o"
 
